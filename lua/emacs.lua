@@ -1,5 +1,4 @@
 -- Emacs.nvim - Emacs keybindings for Neovim
--- Save this as lua/emacs.lua
 
 local M = {}
 
@@ -35,7 +34,7 @@ end
 
 -- Set up keybindings
 function M.setup()
-	-- Insert mode mappings
+	-- Original mappings
 	vim.keymap.set("i", "<C-b>", "<Left>", { noremap = true })
 	vim.keymap.set("i", "<C-f>", "<Right>", { noremap = true })
 	vim.keymap.set("i", "<C-a>", function()
@@ -48,7 +47,15 @@ function M.setup()
 		return kill_line()
 	end, { noremap = true, expr = true })
 
-	-- Command line mode mappings
+	-- Word movement in insert mode
+	vim.keymap.set("i", "<M-f>", "<C-o>w", { noremap = true }) -- Forward word
+	vim.keymap.set("i", "<M-b>", "<C-o>b", { noremap = true }) -- Backward word
+
+	-- Word deletion in insert mode
+	vim.keymap.set("i", "<M-d>", "<C-o>dw", { noremap = true }) -- Delete word forward
+	vim.keymap.set("i", "<M-BS>", "<C-w>", { noremap = true }) -- Delete word backward
+
+	-- Command line mode mappings (original)
 	vim.keymap.set("c", "<C-p>", "<Up>", { noremap = true })
 	vim.keymap.set("c", "<C-n>", "<Down>", { noremap = true })
 	vim.keymap.set("c", "<C-b>", "<Left>", { noremap = true })
@@ -59,8 +66,15 @@ function M.setup()
 	vim.keymap.set("c", "<C-h>", "<BS>", { noremap = true })
 	vim.keymap.set("c", "<C-k>", "<C-f>D<C-c><C-c>:<Up>", { noremap = true })
 
-	-- Command-T window configuration
-	-- Note: This assumes you're using the Command-T plugin
+	-- Word movement in command mode
+	vim.keymap.set("c", "<M-f>", "<S-Right>", { noremap = true }) -- Forward word
+	vim.keymap.set("c", "<M-b>", "<S-Left>", { noremap = true }) -- Backward word
+
+	-- Word deletion in command mode
+	vim.keymap.set("c", "<M-d>", "<C-w>", { noremap = true }) -- Delete word forward
+	vim.keymap.set("c", "<M-BS>", "<C-w>", { noremap = true }) -- Delete word backward
+
+	-- Command-T window configuration (original)
 	vim.g.CommandTCursorLeftMap = { "<Left>", "<C-b>" }
 	vim.g.CommandTCursorRightMap = { "<Right>", "<C-f>" }
 	vim.g.CommandTBackspaceMap = { "<BS>", "<C-h>" }
