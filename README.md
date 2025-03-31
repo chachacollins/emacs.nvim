@@ -2,7 +2,7 @@
 
 This is a plugin that adds keybindings for emacs in neovim insert mode.
 
-Now I know what you're thinking, why the fuck would you just not use emacs then and I hear you. The reason why not is because I have free will and I also think it's pretty funny.
+Now I know what you're thinking, why the fuck would you just not use emacs then and I hear you. The reason why is because I have free will and I also think it's pretty funny.
 
 The real reason though is because sometimes I need to do a simple operation that would need me to go into insert mode. Fuck that I'm too lazy, I'll just use emacs bindings and then use neovim bindings when I actually need to navigate the code.
 
